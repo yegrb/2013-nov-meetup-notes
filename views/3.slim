@@ -1,0 +1,31 @@
+
+header
+  h1 Ruby Template Languages
+  
+nav.menu
+  ul
+    li>: a *section_url('erb') ERB
+    li>: a *section_url('haml') Haml
+    li>: a *section_url('slim') Slim
+    li>: a *section_url('mustache') Mustache
+
+article
+  h1 Slim
+
+  markdown:
+    * Less %noise
+    * No extra whitespace in output
+    
+  code== @slim_code
+
+nav.menu
+  ul
+    li>
+      a.previous href=url("/haml") Previous
+    li>
+      a.next href=url("/mustache") Next
+
+footer
+  ' &copy;
+  = Date.today.year
+  

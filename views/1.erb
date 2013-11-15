@@ -1,0 +1,35 @@
+<header>
+  <h1>Ruby Template Languages</h1>
+</header>
+
+<nav class="menu">
+  <ul>
+    <li><a href="/erb" class="<%= selected_if(@section == 'erb') %>">ERB</a></li>
+    <li><a href="/haml" class="<%= selected_if(@section == 'haml') %>">Haml</a></li>
+    <li><a href="/slim" class="<%= selected_if(@section == 'slim') %>">Slim</a></li>
+    <li><a href="/mustache" class="<%= selected_if(@section == 'mustache') %>">Mustache</a></li>
+  </ul>
+</nav>
+
+<article>
+  <h1>ERB</h1>
+  <ul>
+    <li>Included in the <strong>Ruby standard library</strong></li>
+    <li><strong>Embed</strong> Ruby in HTML (or elsewhere)</li>
+  </ul>
+
+  <code>
+    <%= CodeRay.scan(File.read("views/1.erb"), :erb).div(css: :class) %>
+  </code>
+</article>
+
+<nav class="menu">
+  <ul>
+    <li><a href="<%= url('/') %>" class="previous">Previous</a></li>
+    <li><a href="<%= url('/haml') %>" class="next">Next</a></li>
+  </ul>
+</nav>
+  
+<footer>
+  &copy; <%= Date.today.year %>
+</footer>

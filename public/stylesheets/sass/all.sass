@@ -1,0 +1,19 @@
+@import "mixin"
+@import "base"
+@import "layout"
+@import "coderay"
+  
+a:link, a:visited
+  color: $highlight
+  text-decoration: none
+  &:hover, &.selected
+    color: black
+    transition: color 0.5s ease-in-out
+    border-bottom: 2px solid $highlight
+
+hr
+  border: 4px solid $highlight
+    
+a.previous, a.next
+  @include button
+

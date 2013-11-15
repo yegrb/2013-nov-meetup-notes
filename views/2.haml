@@ -1,0 +1,38 @@
+
+%header
+  %h1 Ruby Template Languages
+  
+%nav.menu
+  %ul
+    %li
+      %a{section_url('erb')} ERB
+    %li
+      %a{section_url('haml')} Haml
+    %li
+      %a{section_url('slim')} Slim
+    %li
+      %a{section_url('mustache')} Mustache
+
+%article
+  %h1 Haml
+
+  :markdown
+    * Never miss a closing tag
+    * Represent **HTML structure**, not content
+    * Symmetry with CSS
+    
+  %code!= @haml_code
+  %hr
+  %code!= @sass_code
+
+%nav.menu
+  %ul
+    %li
+      %a.previous{href:url("/erb")} Previous
+    %li
+      %a.next{href:url("/slim")} Next
+
+%footer
+  &copy;
+  = Date.today.year
+  
