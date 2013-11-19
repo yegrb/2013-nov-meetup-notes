@@ -2,21 +2,6 @@ require 'sinatra'
 require 'mustache/sinatra'
 
 class App < Sinatra::Base
-  set :haml, escape_html: true
-
-  # erubis
-  # set :erb, escape_html: true
-
-  set :markdown, layout_engine: :slim
-
-  require './views/layout'
-  require './views/four'
-  register Mustache::Sinatra
-  set :mustache, {
-    views: 'views/',
-    templates: 'templates/',
-  }
-
   helpers do
     def h(text)
       Rack::Utils.escape_html(text)
@@ -36,6 +21,28 @@ class App < Sinatra::Base
     end
   end
 
+  require './helpers'
+  helpers ViewHelpers
+  
+  set :haml, escape_html: true
+
+  # erubis
+  # set :erb, escape_html: true
+
+  set :markdown, layout_engine: :slim
+
+  require './views/layout'
+  require './views/four'
+  register Mustache::Sinatra
+  set :mustache, {
+    views: 'views/',
+    templates: 'templates/',
+  }
+  
+  require 'slim/logic_less'
+  require './views/five'
+  Slim::Engine.set_default_options :logic_less => false
+
   get '/' do
     markdown :home, layout_engine: :slim
   end
@@ -54,12 +61,15 @@ class App < Sinatra::Base
 
   get '/slim' do
     @section = 'slim'
-    @slim_code = File.read("views/3.slim")
-    @slim_code = %Q{<div class="CodeRay"><div class="code"><pre>#{@slim_code}</pre></div></div>}
+    @slim_code = code_block(File.read("views/3.slim"))
     slim :'3'
   end
 
   get '/mustache' do
     mustache :four
+  end
+  
+  get '/bonus' do
+    slim :five, logic_less: true, dictionary: 'Five.new'
   end
 end
