@@ -1,0 +1,60 @@
+header
+  h1 Ruby Template Languages
+  
+nav.menu
+  ul
+    - menu    
+      li>: a href=url class=selected = text
+
+article
+  h2 Summary
+
+  a href="http://www.dwellable.com/blog/Rails-Rumble-Gem-Teardown"
+    img src="chart.png" title="Rails Rumble" align="right"
+
+  table style="width:50%;"
+    tr
+      th Template
+      th Embed
+      th Logic
+    tr
+      td ERB
+      td Anywhere
+      td Inline/Helpers
+    tr
+      td Haml
+      td HTML
+      td Inline/Helpers
+    tr
+      td Slim
+      td HTML
+      td Optionally Logic-less 
+    tr
+      td Mustache
+      td Anywhere?
+      td Logic-less
+
+  h3 Other Considerations
+
+  ul
+    li security (XSS)
+    li performance
+    li streaming
+    li compression
+    li conversion
+
+  h3 Other Template Languages
+  ul
+    li Liquid
+    li Radius
+    li Handlebars
+    li ECO
+
+nav.menu
+  ul
+    li>: a.previous href="/bonus" Previous
+
+footer
+  ' &copy;
+  = copyright_year
+  

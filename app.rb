@@ -3,10 +3,6 @@ require 'mustache/sinatra'
 
 class App < Sinatra::Base
   helpers do
-    def h(text)
-      Rack::Utils.escape_html(text)
-    end
-  
     # <a href="/mustache" class="<%= selected_if(@section == 'mustache') %>">Mustache</a>
     # %a{href:"#", class:selected_if(@section == 'mustache')}
     def selected_if(expr)
@@ -29,7 +25,7 @@ class App < Sinatra::Base
   # erubis
   # set :erb, escape_html: true
 
-  set :markdown, layout_engine: :slim
+  # set :markdown, layout_engine: :slim
 
   require './views/layout'
   require './views/four'
@@ -44,7 +40,7 @@ class App < Sinatra::Base
   Slim::Engine.set_default_options :logic_less => false
 
   get '/' do
-    markdown :home, layout_engine: :slim
+    slim :home
   end
 
   get '/erb' do
@@ -71,5 +67,9 @@ class App < Sinatra::Base
   
   get '/bonus' do
     slim :five, logic_less: true, dictionary: 'Five.new'
+  end
+  
+  get '/wrapup' do
+    slim :wrapup, logic_less: true, dictionary: 'Five.new'
   end
 end
