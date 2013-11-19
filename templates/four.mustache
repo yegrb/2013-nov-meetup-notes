@@ -1,0 +1,27 @@
+<nav class="menu">
+  <ul>
+    {{#menu}}
+      <li><a href="{{url}}" class="{{selected}}">{{text}}</a></li>
+    {{/menu}}
+  </ul>
+</nav>
+
+<article>
+  <h1>Mustache</h1>
+  <ul>
+    <li>Independent <strong>view</strong> and <strong>template</strong></li>
+    <li>Polyglot (Ruby, JavaScript, etc.)</li>
+  </ul>
+
+  <code>{{{view_code}}}</code>
+  <hr>
+  <code>{{{template_code}}}</code>
+</article>
+
+<nav class="menu">
+  <ul>
+    <li><a href="{{previous_url}}" class="previous">Previous</a></li>
+    <li><a href="{{next_url}}" class="next">Next</a></li>
+  </ul>
+</nav>
+  

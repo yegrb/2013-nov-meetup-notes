@@ -9,4 +9,4 @@ Sass::Plugin.options[:style] = :compressed
 use Sass::Plugin::Rack
 
 require './app'
-run Sinatra::Application
+run App.new
